@@ -18,7 +18,7 @@ class FilesI(Protocol):
     FilesI interface - equivalent to FilesI interface in Go.
     """
     
-    def upload(self, file_path: str) -> 'UploadFile':
+    def upload(self, file_path: str) -> 'UploadFileBuilder':
         """
         Upload is a function that uploads a file to the server.
 
@@ -30,7 +30,7 @@ class FilesI(Protocol):
         """
         ...
     
-    def delete(self, file_id: str) -> 'DeleteFile':
+    def delete(self, file_id: str) -> 'DeleteFileBuilder':
         """
         Delete is a function that deletes a file from the server.
 
@@ -99,7 +99,6 @@ class APIFiles:
             config=self.config,
             id=file_id
         )
-
 
 class UploadFileBuilder:
     """
@@ -205,7 +204,7 @@ class DeleteFileBuilder:
         Returns:
             Tuple of (Response, Exception)
         """
-        from . import do_request
+        from helper import do_request
         
         response = Response(status="done", error="", data={})
         url = f"{self.config.base_url}/v1/files/{self.id}"

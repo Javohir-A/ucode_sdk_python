@@ -196,7 +196,6 @@ class APIItem:
             guid=id
         )
 
-
 class DeleteMultipleItemBuilder:
     """
     DeleteMultipleItemBuilder class - equivalent to DeleteMultipleItem struct operations in Go.

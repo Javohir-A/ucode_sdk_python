@@ -42,7 +42,7 @@ def test_with_debug():
     from config import Config
     from sdk import new
     
-    app_id = "P-QlWnuJCdfy32dsQoIjXHQNScO7DR2TdL"
+    app_id = ""
     base_url = "https://api.client.u-code.io"
     
     config = Config(app_id=app_id, base_url=base_url)
@@ -56,7 +56,7 @@ def test_with_debug():
     
     print("🚀 Making SDK CREATE call...")
     try:
-        result = sdk.items("human").delete().single("936cfecb-05bd-45d1-a8a9-3d1c61cbbab2").exec()
+        result = sdk.files().upload("/home/javokhir/Videos/kazam_u81gyvqs.movie").exec()
         print(f"📦 Result: {result}")
     except Exception as e:
         print(f"💥 Exception: {e}")
