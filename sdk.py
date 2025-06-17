@@ -13,12 +13,12 @@ from abc import ABC, abstractmethod
 # Optional MQTT import
 import paho.mqtt.client as mqtt
 
-from config import Config
-from items import ItemsI
-from auth import AuthI
-from files import FilesI
-from function import FunctionI
-from function import Function
+from .config import Config
+from .items import ItemsI
+from .auth import AuthI
+from .files import FilesI
+from .function import FunctionI
+from .function import Function
 
 
 class UcodeApis(Protocol):
@@ -188,7 +188,7 @@ class UCodeSDK:
         Returns:
             ItemsI: Interface for items operations
         """
-        from items import APIItem as Items
+        from .items import APIItem as Items
         return Items(self, collection)
     
     def auth(self) -> AuthI:
@@ -205,7 +205,7 @@ class UCodeSDK:
         Returns:
             AuthI: Interface for authentication operations
         """
-        from auth import Auth
+        from .auth import Auth
         return Auth(self)
     
     def files(self) -> FilesI:
@@ -222,7 +222,7 @@ class UCodeSDK:
         Returns:
             FilesI: Interface for file operations
         """
-        from files import Files
+        from .files import Files
         return Files(self)
     
     def function(self, path: str) -> FunctionI:

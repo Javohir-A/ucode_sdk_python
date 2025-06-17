@@ -6,7 +6,7 @@ equivalent to the types defined in the original Go SDK.
 """
 from dataclasses import dataclass
 from typing import Dict, Any, Optional, Union, List
-from config import Config
+from .config import Config
 import json
 
 @dataclass

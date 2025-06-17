@@ -8,13 +8,13 @@ equivalent to items.go in the original Go SDK.
 import json
 from typing import Dict, List, Any, Tuple, Protocol
 from urllib.parse import quote
-from models import (
+from .models import (
     ActionBody, Request, Response, ClientApiResponse,
     GetListClientApiResponse, GetListAggregationClientApiResponse
 )
-from builders import CreateItemBuilder, UpdateItemBuilder, DeleteItemBuilder
-from config import Config
-from helper import do_request
+from .builders import CreateItemBuilder, UpdateItemBuilder, DeleteItemBuilder
+from .config import Config
+from .helper import do_request
 
 class ItemsI(Protocol):
     """
@@ -223,7 +223,7 @@ class DeleteMultipleItemBuilder:
         Returns:
             Tuple of (Response, Exception)
         """
-        from helper import do_request
+        from .helper import do_request
         
         response = Response(status="done", error="", data={})
         url = f"{self.config.base_url}/v2/items/{self.collection}?from-ofs={self.disable_faas}"
@@ -286,7 +286,7 @@ class GetSingleItemBuilder:
         Returns:
             Tuple of (ClientApiResponse, Response, Exception)
         """
-        from helper import do_request
+        from .helper import do_request
         
         if self.guid == "":
             return (
@@ -456,7 +456,7 @@ class GetListItemBuilder:
         Returns:
             Tuple of (GetListClientApiResponse, Response, Exception)
         """
-        from helper import do_request
+        from .helper import do_request
         
         response = Response(status="done", error="", data={})
         url = f"{self.config.base_url}/v2/items/{self.collection}?from-ofs=true"
@@ -555,7 +555,7 @@ class GetListAggregationBuilder:
         Returns:
             Tuple of (GetListAggregationClientApiResponse, Response, Exception)
         """
-        from helper import do_request
+        from .helper import do_request
         
         response = Response(status="done", error="", data={})
         url = f"{self.config.base_url}/v2/items/{self.collection}/aggregation"

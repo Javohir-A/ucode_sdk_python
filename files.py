@@ -9,8 +9,8 @@ import json
 import os
 from typing import Dict, Any, Tuple, Protocol
 import requests
-from models import CreateFileResponse, Response, Request, UploadFile, DeleteFile
-from config import Config
+from .models import CreateFileResponse, Response, Request, UploadFile, DeleteFile
+from .config import Config
 
 
 class FilesI(Protocol):
@@ -204,7 +204,7 @@ class DeleteFileBuilder:
         Returns:
             Tuple of (Response, Exception)
         """
-        from helper import do_request
+        from .helper import do_request
         
         response = Response(status="done", error="", data={})
         url = f"{self.config.base_url}/v1/files/{self.id}"

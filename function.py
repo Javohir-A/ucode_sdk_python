@@ -7,8 +7,8 @@ equivalent to function.go in the original Go SDK.
 
 import json
 from typing import Dict, Any, Tuple, Protocol
-from models import Request, FunctionResponse, Response
-from config import Config
+from .models import Request, FunctionResponse, Response
+from .config import Config
 
 
 class FunctionI(Protocol):
@@ -80,7 +80,7 @@ class APIFunction:
         Returns:
             Tuple of (FunctionResponse, Response, Exception)
         """
-        from .sdk import do_request
+        from .helper import do_request
         
         response = Response(
             status="done",

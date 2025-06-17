@@ -7,14 +7,14 @@ Updated UpdateItemBuilder to use the same ApiResponse class structure.
 import json
 from typing import Dict, List, Any, Tuple, Protocol, Optional
 from urllib.parse import quote
-from models import (
+from .models import (
     ActionBody, Request, Datas, Response, ClientApiResponse,
     ClientApiUpdateResponse, ClientApiMultipleUpdateResponse,
     GetListClientApiResponse, GetListAggregationClientApiResponse, CreateItem,
     UpdateItem, DeleteItem, GetListItem, GetSingleItem, ApiResponse
 )
-from config import Config
-from helper import do_request
+from .config import Config
+from .helper import do_request
 
 
 class UpdateItemBuilder:

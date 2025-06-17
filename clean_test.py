@@ -39,8 +39,8 @@ def debug_do_request(url, method, body=None, headers=None):
 
 def test_with_debug():
     """Test SDK CREATE with debugging enabled."""
-    from config import Config
-    from sdk import new
+    from .config import Config
+    from .sdk import new
     
     app_id = ""
     base_url = "https://api.client.u-code.io"
@@ -89,7 +89,7 @@ def compare_working_vs_sdk():
     print("❓ SDK format (what we think it's sending):")
     
     # Try to figure out what our SDK is creating
-    from models import ActionBody
+    from .models import ActionBody
     action_body = ActionBody(body=test_data, disable_faas=True)
     
     print(f"   ActionBody type: {type(action_body)}")

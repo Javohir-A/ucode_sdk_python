@@ -7,13 +7,13 @@ equivalent to auth.go in the original Go SDK.
 
 import json
 from typing import Dict, Any, Tuple, Protocol
-from models import (
+from .models import (
     AuthRequest, Register, ResetPassword, Login, SendCode,
     RegisterResponse, LoginResponse, LoginWithOptionResponse, 
     SendCodeResponse, Response
 )
-from config import Config
-from helper import do_request
+from .config import Config
+from .helper import do_request
 
 class AuthI(Protocol):
     """
